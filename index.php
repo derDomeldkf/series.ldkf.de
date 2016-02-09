@@ -76,7 +76,7 @@
        					$emax=$row['emax'];
 							$name=$row['name'];
        				}
-						if (strlen($name) < 15) {			
+						if (strlen($name) < 17) {			
 							echo '<div class="col-md-3 col-sd-4"';
 						}
 						else {
