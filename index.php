@@ -111,7 +111,7 @@
 							echo'	<hr ALIGN="LEFT" style="background: red; height: 2px; width:180px"></div>';
 						}
 						else{
-							echo'	<hr ALIGN="LEFT" style="background: red; height: 2px; width:400px"></div>';
+							echo'	<hr ALIGN="LEFT" style="background: red; height: 2px; width:420px"></div>';
 						}
 					}
 					echo '<br>
