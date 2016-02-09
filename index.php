@@ -4,6 +4,7 @@
  	if(isset($_POST['user'])) {
  		$user_in=$_POST['user'];
  		setcookie('user_series', $user_in, time()+(3600*24*365));  
+ 		header('Location: ./');
  	}
  	if(isset($_COOKIE['user_series']) and $_COOKIE['user_series']!="") {
 		$user=$_COOKIE['user_series'];
@@ -14,7 +15,7 @@
 			$insert = $db->query("INSERT INTO serien (smax, emax, s, e, name, user) VALUES ('$s', '$e', '0', '0', '$name', '$user')"); 
 			header('Location: ./');
 		}
-		$getid = $db->query("SELECT `id` FROM `serien` WHERE user LIKE '$user'"); 
+		$getid = $db->query("SELECT `id` FROM `serien`"); 
 		while($ids= mysqli_fetch_assoc($getid)) {
       	$getids[]=$ids['id'];
    	}
