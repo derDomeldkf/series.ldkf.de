@@ -76,8 +76,13 @@
        					$emax=$row['emax'];
 							$name=$row['name'];
        				}
-										
-						echo '<div class="col-md-3 col-sd-4" style="padding-left:0"><h3>'.$name.'</h3>';
+						if (strlen($name) < 15) {			
+							echo '<div class="col-md-3 col-sd-4"';
+						}
+						else {
+							echo '<div class="col-md-6 col-sd-8"';
+						}
+						echo' style="padding-left:0"><h3>'.$name.'</h3>';
 						echo '
 								<select name="s_'.$id.'" class="form-control" style="width:80px; margin-right:20px; float:left" autocomplete="off">';
 						$i=1;
