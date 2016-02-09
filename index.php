@@ -106,8 +106,12 @@
 							}						
 							$i++;	
 						}
-						echo '</select>
-						<hr ALIGN="LEFT" style="background: red; height: 2px; width:180px"></div>';
+						echo '</select>';
+						if (strlen($name) < 17) {			
+							echo'	<hr ALIGN="LEFT" style="background: red; height: 2px; width:180px"></div>';
+						}
+							echo'	<hr ALIGN="LEFT" style="background: red; height: 2px; width:400px"></div>';
+						}
 					}
 					echo '<br>
 						<button class="btn btn-primary">Updaten</button>					
