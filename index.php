@@ -12,7 +12,10 @@
 			$name=$_POST['name'];
 			$s=$_POST['staf'];
 			$e=$_POST['epi'];
-			$insert = $db->query("INSERT INTO serien (smax, emax, s, e, name, user) VALUES ('$s', '$e', '0', '0', '$name', '$user')"); 
+			$insert = $db->query("INSERT INTO serien (smax, emax, name) VALUES ('$s', '$e', '$name')"); 
+			$getinfo_u = $db->query("SELECT id FROM `serien` WHERE name LIKE '$name'"); 
+			$id = mysqli_fetch_assoc($getinfo_u)['id'];
+			$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
 			header('Location: ./');
 		}
 		$getid = $db->query("SELECT `id` FROM `serien`"); 
@@ -59,15 +62,18 @@
 						if(isset($_POST['e_'.$id])) {			
 							$e=$_POST['e_'.$id];
 							$s=$_POST['s_'.$id];
-							$update = $db->query("UPDATE serien SET e = '$e', s ='$s' where id = '$id' and user LIKE '$user' ");  
+							$update = $db->query("UPDATE usersserie SET e = '$e', s ='$s' where id = '$id'");  
 							header('Location: ./');
 						}
-						$getinfo = $db->query("SELECT smax , emax , s , e , name FROM `serien` WHERE id LIKE '$id' and user LIKE '$user'"); 
+						$getinfo = $db->query("SELECT smax , emax , name FROM `serien` WHERE id LIKE '$id'"); 
+						$getinfo_u = $db->query("SELECT s , e FROM `usersserie` WHERE id LIKE '$id' and user LIKE '$user'");
+						while($rows = mysqli_fetch_assoc($getinfo_u)) {
+       					$s=$rows['s'];
+       					$e=$rows['e'];
+       				} 
 						while($row = mysqli_fetch_assoc($getinfo)) {
        					$smax=$row['smax'];
        					$emax=$row['emax'];
-							$s=$row['s'];
-							$e=$row['e'];
 							$name=$row['name'];
        				}
 										
