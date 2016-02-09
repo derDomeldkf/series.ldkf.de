@@ -96,7 +96,7 @@
 							$i++;	
 						}
 						$i=1;
-						echo '</select><select name="e_'.$id.'" class="form-control" style="width:80px;" autocomplete="off">';
+						echo '</select><select name="e_'.$id.'" class="form-control" onchange="this.form.submit()" style="width:80px;" autocomplete="off">';
 						while($i<=$emax) {
 							if($i==$e) {
 								echo '<option selected>'. $i ."</option>";
