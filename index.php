@@ -1,7 +1,7 @@
 <?php
 	include "config.php";
  	include "db_connect.php";
- 	if(isset($_POST['user'])) {
+ 	if(isset($_POST['user']) and $_POST['pw'] == $pw) {
  		$user_in=$_POST['user'];
  		setcookie('user_series', $user_in, time()+(3600*24*365));  
  		header('Location: ./');
@@ -105,7 +105,7 @@
 						<hr ALIGN="LEFT" style="background: red; height: 2px; width:180px"></div>';
 					}
 					echo '<br>
-						<button class="btn btn-primary">Senden</button>					
+						<button class="btn btn-primary">Updaten</button>					
 						</form>';		
 				}
 			?>
