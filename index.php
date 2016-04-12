@@ -77,7 +77,7 @@
 						if(isset($_POST['e_'.$id])) {			
 							$e=$_POST['e_'.$id];
 							$s=$_POST['s_'.$id];
-							$update = $db->query("UPDATE usersserie SET e = '$e', s ='$s' where id = '$id'");  
+							$update = $db->query("UPDATE usersserie SET e = '$e', s ='$s' where id = '$id' and user LIKE '$user'");  
 							header('Location: ./');
 						}
 						$getinfo = $db->query("SELECT smax , emax , name FROM `serien` WHERE id LIKE '$id'"); 
