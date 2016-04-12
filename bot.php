@@ -1,5 +1,5 @@
 <?php
-
+	$bot_id = "187000985:AAFhG3pmW3jBJ_ZJkcFzzMuB-WyqZ_cTvR8";
 $response = file_get_contents('php://input');
 
 
