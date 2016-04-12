@@ -1,9 +1,24 @@
 <?php
 	session_start();
-	$rand=rand(10000,99999)
-	$_SESSION['telegramaccount']=$rand;
 	include "config.php";
  	include "db_connect.php";
+ 	
+	$rand=rand(10000,99999);
+	if(!isset($_SESSION['telegramaccount'])) {
+		$_SESSION['telegramaccount']=$rand;
+	}
+	else {
+		$rand=$_SESSION['telegramaccount'];
+		if(!isset($_COOKIE['user_series']) or $_COOKIE['user_series']=="") {	
+			$getid = $db->query("SELECT username FROM `serien_user` WHERE rand LIKE '$rand'"); 
+			$user_in=$getid->fetch_assoc()['username'];
+		
+		 	setcookie('user_series', $user_in, time()+(3600*24*365));  
+		}
+	}
+	echo $_SESSION['telegramaccount'];
+
+ 	
  	if(isset($_POST['user']) and $_POST['pw'] == $pw) {
  		$user_in=$_POST['user'];
  		setcookie('user_series', $user_in, time()+(3600*24*365));  
