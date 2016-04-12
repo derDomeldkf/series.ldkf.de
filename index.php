@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$rand=rand(10000,99999)
+	$_SESSION['telegramaccount']=$rand;
 	include "config.php";
  	include "db_connect.php";
  	if(isset($_POST['user']) and $_POST['pw'] == $pw) {
@@ -57,7 +60,7 @@
 				<button class="btn btn-primary">Senden</button>					
 				</form>
 				<h4>Login mit Telegram:</h4>
-				<a href="https://telegram.me/ldkf_login_bot?start=series.ldkf.de_1234" target="_blank">ldkf_login_bot</a>
+				<a href="https://telegram.me/ldkf_login_bot?start='. $rand .'" target="_blank">ldkf_login_bot</a>
 				';
 			}
 			echo '<form class="form-signin" method="post" action="">';
