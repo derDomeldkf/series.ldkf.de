@@ -40,6 +40,7 @@
 			if(isset($_COOKIE['user_series']) and $_COOKIE['user_series']!="") {
 				echo'
 			<h3>Neue Serie hinzufügen</h3>
+
 			<form class="form-signin" method="post" action="">
 				<input class="form-control" style="width:160px; margin-right:20px; float:left" name="name" placeholder="Serienname" autocomplete="off" required="yes">
 				<input class="form-control" style="width:100px; margin-right:20px; float:left" name="staf" placeholder="Staffel" autocomplete="off" required="yes">
@@ -54,7 +55,10 @@
 					<input class="form-control" style="width:160px; margin-right:20px; float:left" name="user" type="text" placeholder="Benutzername" autocomplete="off" required="yes">
 					<input class="form-control" style="width:100px; margin-right:20px; float:left" name="pw" type="password" placeholder="Passwort" autocomplete="off" required="yes">
 				<button class="btn btn-primary">Senden</button>					
-				</form>';
+				</form>
+				<h4>Login mit Telegram:</h4>
+				<a href="https://telegram.me/ldkf_login_bot?start=series.ldkf.de_1234" target="_blank">ldkf_login_bot</a>
+				';
 			}
 			echo '<form class="form-signin" method="post" action="">';
 				if(isset($_COOKIE['user_series']) and $_COOKIE['user_series']!="") {
