@@ -16,7 +16,6 @@
 		 	setcookie('user_series', $user_in, time()+(3600*24*365));  
 		}
 	}
-	echo $_SESSION['telegramaccount'];
 
  	
  	if(isset($_POST['user']) and $_POST['pw'] == $pw) {
@@ -68,13 +67,7 @@
 			}
 			else {
 				echo'
-				<h3>Registrierung/Anmeldung</h3>
-				<form class="form-signin" method="post" action="">
-					<input class="form-control" style="width:160px; margin-right:20px; float:left" name="user" type="text" placeholder="Benutzername" autocomplete="off" required="yes">
-					<input class="form-control" style="width:100px; margin-right:20px; float:left" name="pw" type="password" placeholder="Passwort" autocomplete="off" required="yes">
-				<button class="btn btn-primary">Senden</button>					
-				</form>
-				<h4>Login mit Telegram:</h4>
+				<h3>Login mit Telegram:</h3>
 				<a href="https://telegram.me/ldkf_login_bot?start='. $rand .'" target="_blank">ldkf_login_bot</a>
 				';
 			}
