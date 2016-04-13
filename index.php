@@ -12,7 +12,9 @@
 		if(!isset($_COOKIE['user_series']) or $_COOKIE['user_series']=="") {	
 			$getid = $db->query("SELECT username FROM `serien_user` WHERE rand LIKE '$rand'"); 
 			$user_in=$getid->fetch_assoc()['username'];
-		
+			$getinfo_u = $db->query("SELECT id FROM `serien` WHERE name LIKE '$name'"); 
+			$id = mysqli_fetch_assoc($getinfo_u)['id'];
+			$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
 		 	setcookie('user_series', $user_in, time()+(3600*24*365));  
 		}
 	}
@@ -30,9 +32,6 @@
 			$s=$_POST['staf'];
 			$e=$_POST['epi'];
 			$insert = $db->query("INSERT INTO serien (smax, emax, name) VALUES ('$s', '$e', '$name')"); 
-			$getinfo_u = $db->query("SELECT id FROM `serien` WHERE name LIKE '$name'"); 
-			$id = mysqli_fetch_assoc($getinfo_u)['id'];
-			$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
 			header('Location: ./');
 		}
 		$getid = $db->query("SELECT `id` FROM `serien`"); 
@@ -77,6 +76,7 @@
 						if(isset($_POST['e_'.$id])) {			
 							$e=$_POST['e_'.$id];
 							$s=$_POST['s_'.$id];
+							
 							$update = $db->query("UPDATE usersserie SET e = '$e', s ='$s' where id = '$id' and user LIKE '$user'");  
 							header('Location: ./');
 						}
