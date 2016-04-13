@@ -17,10 +17,9 @@
       		$getids[]=$ids['id'];
    		}
    		foreach($getids as $id){							
-				$update = $db->query("UPDATE usersserie SET e = '$e', s ='$s' where id = '$id' and user LIKE '$user'");  
-				header('Location: ./');
+				$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
 			}
-			$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
+
 		 	setcookie('user_series', $user_in, time()+(3600*24*365));  
 		}
 	}
