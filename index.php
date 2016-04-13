@@ -12,8 +12,14 @@
 		if(!isset($_COOKIE['user_series']) or $_COOKIE['user_series']=="") {	
 			$getid = $db->query("SELECT username FROM `serien_user` WHERE rand LIKE '$rand'"); 
 			$user_in=$getid->fetch_assoc()['username'];
-			$getinfo_u = $db->query("SELECT id FROM `serien` WHERE name LIKE '$name'"); 
-			$id = mysqli_fetch_assoc($getinfo_u)['id'];
+			$getid = $db->query("SELECT `id` FROM `serien`"); 
+			while($ids= mysqli_fetch_assoc($getid)) {
+      		$getids[]=$ids['id'];
+   		}
+   		foreach($getids as $id){							
+				$update = $db->query("UPDATE usersserie SET e = '$e', s ='$s' where id = '$id' and user LIKE '$user'");  
+				header('Location: ./');
+			}
 			$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
 		 	setcookie('user_series', $user_in, time()+(3600*24*365));  
 		}
