@@ -17,7 +17,7 @@
       		$getids[]=$ids['id'];
    		}
    		foreach($getids as $id){							
-				$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user', '0', '0')"); 
+				$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user_in', '0', '0')"); 
 			}
 
 		 	setcookie('user_series', $user_in, time()+(3600*24*365));  
