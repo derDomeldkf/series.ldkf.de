@@ -37,6 +37,9 @@
 			$s=$_POST['staf'];
 			$e=$_POST['epi'];
 			$insert = $db->query("INSERT INTO serien (smax, emax, name) VALUES ('$s', '$e', '$name')"); 
+			$getid = $db->query("SELECT `id` FROM `serien` WHERE name LIKE '$name'"); 
+			$id= mysqli_fetch_assoc($getid)['id']
+			$insert = $db->query("INSERT INTO usersserie (id, user, e, s) VALUES ('$id', '$user_in', '0', '0')"); 
 			header('Location: ./');
 		}
 		$getid = $db->query("SELECT `id` FROM `serien`"); 
